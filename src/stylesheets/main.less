@@ -1,0 +1,157 @@
+@navHeight: 40px;
+
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* just prevent scrolling entirely */
+}
+
+body {
+  /*  https://css-tricks.com/snippets/css/a-guide-to-flexbox/  */
+  
+  font-family: sans-serif;
+  color: #525252;
+}
+
+
+
+a {
+  text-decoration: none;
+}
+
+
+#home{
+  /*wrapper for chapter boxes.  don't add any padding or margin here*/
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction:row;
+  width:100%;
+  height:100%;
+}
+
+  /*div representing a chapter on the home page*/
+  .homeChapter{
+    margin: 15px;
+    width:100px;
+    height:100px;
+    background:#f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+
+
+/*the main chapter holder - hidden/shown*/
+#chapter{
+  position: absolute;
+  display: none;
+  flex-direction: column;
+  top:0; left:0;
+  background: #bddce8;
+  width:100%;
+  height:100%;
+}
+
+
+
+  #page{
+    background: #ffffff;
+    flex-grow:1;
+    position: relative;
+  }
+
+
+  .pageElement{
+    /*every element on a page (text, image, chart) is wrapped in one of these divs*/
+    position:absolute;
+    background: #bddce8;
+
+    /* by default, lets try centering everything...*/
+    /*
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    */
+  }
+
+    .pageElement img.standalone{
+      /* applies to standalone images thrown in the containers*/
+      max-height: 100%;  
+      max-width: 100%; 
+      width: auto;
+      height: auto;
+      position: absolute;  
+      top: 0;  
+      bottom: 0;  
+      left: 0;  
+      right: 0;  
+      margin: auto;
+    }
+
+
+  #chapterTitle, #chapterNav{
+    /*this element:*/;
+    background:#008edc;
+    flex-grow:0;
+    min-height:@navHeight;
+
+    /*for the children:*/
+    display: flex;
+    flex-direction: row;
+  }
+
+
+    /*top navigation for title and 'close' */
+    #chapterText{
+      flex-grow:1;
+      background:#cccccc;
+    }
+
+    #chapterClose{
+      flex-grow:0;
+      min-width:@navHeight;
+      background:#666666;
+      cursor:pointer;
+    }
+      #chapterClose:after{
+        content: 'x';
+      }
+
+
+
+    /*bottom navigation for left/right*/
+    #chapterLeft, #chapterRight{
+      flex-grow:0;
+      min-width:@navHeight;
+      background:#cccccc;
+      cursor: pointer;
+
+    }
+      #chapterRight:after{
+        content: '>';
+      }
+      #chapterLeft:after{
+        content: '<';
+      }
+
+    #chapterMid{
+      flex-grow:1;
+      background:#666666;
+    }
+
+
+
+
+
+
+
+
+
+
+

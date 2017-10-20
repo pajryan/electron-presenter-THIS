@@ -1,0 +1,51 @@
+contentFolder: default
+chapters:
+  -
+    title: Patrick
+    thumbnail: chapter1thumb
+    pages:
+      -
+        title: 'Page 1'
+        elements:
+          -
+            elementType: image
+            element: yosemite.jpg
+            position:
+              fromTopPercent: 0
+              fromLeftPercent: 0
+              widthPercent: 67
+              heightPercent: 100
+          -
+            elementType: text
+            element: someText.mmd
+            position:
+              fromTopPercent: 0
+              fromLeftPercent: 67
+              widthPercent: 33
+              heightPercent: 50
+          -
+            elementType: text
+            element: someText.mmd
+            position:
+              fromTopPercent: 50
+              fromLeftPercent: 67
+              widthPercent: 33
+              heightPercent: 50
+      -
+        title: 'Page 2'
+        elements:
+          -
+            elementType: chart
+            position:
+              fromTopPercent: 0
+              fromLeftPercent: 0
+              widthPercent: 100
+              heightPercent: 100
+  -
+    title: C2
+    thumbnail: chapter2thumb
+    pages:
+      -
+        title: 'Page 1'
+        elements:
+          - {}

@@ -1,0 +1,92 @@
+{
+  "type": "object",
+  "title": "presentation editor",
+  
+  "properties": {
+    "contentFolder": {
+      "title": "name of presentation",
+      "type": "string"
+    },
+
+    "chapters": {
+      "title": " ",
+      "type": "array",
+      "format": "tabs",
+      "items": {
+        "type": "object",
+        "title": "ch.",
+        "properties": {
+          "title": {
+            "title": "chapter name",
+            "type": "string"
+          },
+          "thumbnail": {
+            "name": "thumbnail image name",
+            "format": "imagePicker",
+            "type": "string"
+          },
+          "pages": {
+            "title": " ",
+            "type": "array",
+            "format":"tabs",
+            "items":{
+              "type":"object",
+              "title": "pg.",
+              "properties":{
+                "title": {
+                  "title": "page title",
+                  "type": "string"
+                },
+                "elements":{
+                  "title": " ",
+                  "type":"array",
+                  "format":"tabs",
+                  "items":{
+                    "type":"object",
+                    "title": "itm",
+                    "properties":{
+                      "elementType": {
+                        "title": "element type",
+                        "type": "string",
+                        "enum":[
+                          "text", "image", "chart"
+                        ]
+                      },
+                      "element": {
+                        "name": "element",
+                        "type": "string"
+                      },
+                      "position":{
+                        "name": "position",
+                        "type": "object",
+                        "properties":{
+                          "fromTopPercent":{
+                            "title": "from top (%)",
+                            "type": "integer"
+                          },
+                          "fromLeftPercent":{
+                            "title": "from left (%)",
+                            "type": "integer"
+                          },
+                          "widthPercent":{
+                            "title": "width (%)",
+                            "type": "integer"
+                          },
+                          "heightPercent":{
+                            "title": "height (%)",
+                            "type": "integer"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+}

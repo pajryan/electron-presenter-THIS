@@ -1,0 +1,342 @@
+
+
+#settings{
+	display:flex;
+	flex-direction: column;
+
+	position: absolute;
+	top:0px;
+	left:-50%;	
+	width:50%;
+	height:100%;
+	
+	background: #f7f7f7;
+	box-shadow: none;
+	/*overflow: hidden;*/
+
+}
+
+	#settings .userMessages{
+		height:45px;
+		font-family: monospace;
+		font-size: 0.9em;
+		padding:5px;
+		margin-bottom:10px;
+		flex-grow:0;
+	}
+		#settings .userMessages:not(:empty){
+			background:#ffcccc;
+		}
+
+		#settings .tocSelect{
+			display: block;
+			width:75%;
+		}
+
+			#settings .tocSelectDiv:before{
+				content: 'Select presentation flow to use:';
+			}
+
+
+	
+
+	#settings #tabZone{
+		margin-top:15px;
+		flex-grow:1;
+		height:65%;
+	}
+
+		#settings #tabZone .tab{
+			display:inline-block;
+			text-align: center;
+			width: 33%;
+			font-size:0.9em;
+			border-bottom:1px solid #cccccc;
+			border-right:1px solid #cccccc;
+			border-top:1px solid #cccccc;
+			cursor: pointer;
+			background: #f7f7f7;
+		}
+			#settings #tabZone .selectedTab{
+				background:#ffffff;
+				border-bottom:0;
+			}
+
+	#settings #jdrnWrap{
+		display: block;
+		background:#ffffff;
+		margin-top:-1px;
+		flex-grow:1;
+		height:100%;
+		overflow:scroll;
+		padding-left:10px;
+
+	}
+		#settings .jdrnSubmit{
+			position: relative;
+			top:0px;
+			left:80%;
+		}
+
+	#settings #imgWrap{
+		display: none;
+		background:#ffffff;
+		margin-top:-1px;
+		padding:30px 10px 10px 10px;
+		flex-grow:1;
+		height: 100%;
+		overflow:scroll;
+	}
+
+	#settings #mmdWrap{
+		display: none;
+		background:#ffffff;
+		margin-top:-1px;
+		padding:30px 10px 10px 10px;
+		flex-grow:1;
+		height: 100%;
+		overflow:scroll;
+	}
+
+	#settings button, #settings select{
+		margin-top:10px;
+		margin-left:10px;
+		font-size:0.8em;
+	}
+
+	#settings.showSettings{
+		left:-50%;
+		display:block;
+		box-shadow: 10px 0px 30px #999999;
+		border-right:1px solid #999999;
+
+		-webkit-animation: slide 0.5s forwards;
+	    -webkit-animation-delay: 0s;
+	    animation: slide 0.5s forwards;
+	    animation-delay: 0s;
+	}
+
+
+	@-webkit-keyframes slide {
+	    100% { left: 0; }
+	}
+
+	@keyframes slide {
+	    100% { left: 0; }
+	}
+
+
+	#settings .closeSettings{
+		text-align: right;
+		padding-right:30px;
+		padding-top:10px;
+		background: #cccccc;
+		cursor: pointer;
+
+	}
+
+	#settings .userMessages{
+		height:45px;
+		font-family: monospace;
+		font-size: 0.9em;
+		padding:5px;
+		margin-bottom:10px;
+	}
+		#settings .userMessages:not(:empty){
+			background:#ffcccc;
+		}
+
+/*
+	Everything below is for the mmd editor
+*/
+#settings #mmdTable{
+	height:40%;
+	overflow: scroll;
+}
+
+#settings #mmdTable span{
+	cursor: pointer;
+	font-size: 0.8em;
+	color:#008edc;
+}
+
+
+#settings #mmdEditorWrap{
+	height:40%;
+	overflow: scroll;	
+	width:100%;
+	font-size: 0.8em;
+}
+#settings #mmdEditorWrap:before{
+	content: 'edit text:';
+}
+
+	#settings #mmdEditorWrap textarea{
+		width:90%;
+		height:90%;
+		
+	}
+
+
+
+
+/*
+	Everything below is for the image editor
+*/
+#settings #imageTable{}
+
+#settings #imageTable tr{
+}
+
+#settings #imageTable td{
+	border-bottom:1px solid #cccccc;
+	padding:20px 0px 20px 0px;
+}
+
+
+#settings #imageTable img{
+	max-height:160px;
+	max-width:50%;
+}
+
+
+
+
+
+/*
+	Everything below is just for the jdorn editor
+*/
+
+
+#jdrn{
+	overflow: scroll;
+	
+	background:#ffffff;
+	margin-top:-50px;
+}
+
+    ::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 7px;
+    }
+    ::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: rgba(0,0,0,.5);
+        -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+    }
+
+#jdrn div{
+	border:0 !important;
+}
+
+	#jdrn div[data-schemapath^="root.chapters."][data-schematype="object"] {	/*starts with root.chapters*/
+	  border-left: 1px solid #cccccc !important;
+	  padding-top:0;
+	}
+
+	#jdrn div[data-schemapath^="root.chapters."][data-schematype="string"] {	/*starts with root.chapters*/
+		margin-left:-8px;
+	}
+
+	#jdrn div[data-schemapath$=".position"][data-schematype="object"] {	/*ends with .position*/
+	  border-left: 0 !important;
+	  padding-top:0;
+	}
+
+		
+	#jdrn div[data-schemapath*=".position."][data-schematype="integer"] input{	/*title inside ends with .position*/
+	  width:60px;
+	}
+
+	#jdrn div[data-schemapath="root.contentFolder"] {	/*starts with root.chapters*/
+	  margin-left:-8px;
+	}
+
+
+#jdrn h3{
+	font-size:0.8em;
+	margin-top:0px;
+}	
+
+#jdrn h3 span{
+	display:none;
+}	
+	#jdrn div[data-schemapath$=".position"][data-schematype="object"] h3 span{	/*title inside ends with .position*/
+	  display:inline;
+	  margin-bottom:0px !important;
+	  padding-bottom:0px !important;
+	  font-size: 0.9em;
+	}
+
+#jdrn label{
+	font-size:0.7em;
+}
+
+/*manage the tab widths*/
+#jdrn .tabs{
+	width: 30px !important;
+	font-size:0.8em;
+	cursor: pointer;
+}
+
+#jdrn .content{
+	margin-left: 30px !important;
+}
+
+#jdrn input{
+	margin-bottom:10px;
+}
+#jdrn select{
+	margin-bottom:10px;
+	margin-left:0px;
+	margin-top:0px;
+	width:120px;
+}
+
+
+
+#jdrn button{
+	border:1px solid #008edc;
+	background: #bddce8;
+	color: #008edc;
+	cursor:pointer;
+	margin-top:3px;
+}
+	#jdrn button:hover{
+		border:1px solid #008edc;
+		background: #bddce8;
+		color: #000000;
+		cursor:pointer;
+	}
+
+	#jdrn .json-editor-btn-delete {
+		display: none;	/*remove the delete chapter buttons at the top level...*/
+	}
+
+	#jdrn .delete{
+		display: inline; /*... but keep them at the chapter level*/
+		margin-left: 0px;
+		margin-top: 0px;
+	}
+
+	#jdrn .json-editor-btn-add {
+		margin-left:-28px;
+	}
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
